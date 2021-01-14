@@ -1,8 +1,12 @@
 module.exports = {
     // TODO : add entry ts file 
+    entry: './src/app.ts',
 
     // TODO : add output js file 
-
+    output: {
+        filename: 'app.js',
+        path: __dirname + './dist'
+    },
 
     resolve: {
         extensions: ['.ts', '.js']
@@ -13,5 +17,8 @@ module.exports = {
         ]
     },
     // TODO set devServer port for live reload
+    devServer: {
+        port: 3000
+    }
 
 };
