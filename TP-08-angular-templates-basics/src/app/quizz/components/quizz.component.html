@@ -3,31 +3,33 @@
         <div class="quizz-progress"></div>
     </div>
 
-    <div class="counter">5 / 22</div>
+    <div class="counter">{{currentQuestionIndex + 1 }} / {{quizzQuestions.length}}</div>
 
-    <div class="question-container">
-        <h2>Hello ma question ? </h2>
-
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-outline-primary">Primary</button>
-
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-outline-primary">Primary</button>
-            </div>
-        </div>
+    <div class="question-container" *ngFor="let questionItem of quizzQuestions; index as i;" [hidden]="i != currentQuestionIndex">
+        <h2>{{questionItem.question}} </h2>
 
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-outline-primary">Primary</button>
-
+                <button (click)="nextQuestion()" type="button" class="btn btn-outline-primary">{{questionItem.answers[0].answer}}</button>
             </div>
+
             <div class="col">
-                <button type="button" class="btn btn-outline-primary">Primary</button>
-
+                <button (click)="nextQuestion()" type="button" class="btn btn-outline-primary">{{questionItem.answers[1].answer}}</button>
             </div>
+
         </div>
+        <div class="row">
+            <div class="col">
+                <button (click)="nextQuestion()" type="button" class="btn btn-outline-primary">{{questionItem.answers[2].answer}}</button>
+            </div>
+
+            <div class="col">
+                <button (click)="nextQuestion()" type="button" class="btn btn-outline-primary">{{questionItem.answers[3].answer}}</button>
+            </div>
+
+        </div>
+
+
     </div>
 
 
