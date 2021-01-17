@@ -11,6 +11,5 @@
   "scripts": {
     "start": "parcel index.html"
   },
-  "author": "Brian Troncone, Ultimate Courses",
   "license": "MIT"
 }
