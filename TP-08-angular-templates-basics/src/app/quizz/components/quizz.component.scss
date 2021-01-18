@@ -1,3 +1,8 @@
+.title {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .quizz-container {
     width: 700px;
     margin: 0 auto;
@@ -13,6 +18,7 @@
             height: 15px;
             width: 50%;
             background-color: #4c84f0;
+            transition: width 1s;
         }
     }
     .counter {
@@ -23,11 +29,13 @@
         h2 {
             font-size: 20px;
         }
-        .row {
-            .btn {
-                margin-top: 10px;
-                width: 100%
-            }
-        }
+        .row {}
+    }
+}
+
+.quizz-result {
+    text-align: center;
+    img {
+        width: 100px;
     }
 }

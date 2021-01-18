@@ -1,6 +1,8 @@
-<div class="quizz-container card">
+<h3 class="title">{{totalPoints}} POINTS</h3>
+<h4 class="title">{{secondsToString(quizTime)}}</h4>
+<div class="quizz-container card" *ngIf="!quizzEnded">
     <div class="quizz-progress-bar">
-        <div class="quizz-progress"></div>
+        <div class="quizz-progress" [ngStyle]="{'width': getCurrentProgress()}"></div>
     </div>
 
     <div class="counter">{{currentQuestionIndex + 1 }} / {{quizzQuestions.length}}</div>
@@ -10,21 +12,21 @@
 
         <div class="row">
             <div class="col">
-                <button (click)="nextQuestion()" type="button" class="btn btn-outline-primary">{{questionItem.answers[0].answer}}</button>
+                <app-quiz-button (answerClicked)="nextQuestion(questionItem.answers[0])" [label]="questionItem.answers[0].answer"></app-quiz-button>
             </div>
 
             <div class="col">
-                <button (click)="nextQuestion()" type="button" class="btn btn-outline-primary">{{questionItem.answers[1].answer}}</button>
+                <app-quiz-button (answerClicked)="nextQuestion(questionItem.answers[1])" [label]="questionItem.answers[1].answer"></app-quiz-button>
             </div>
 
         </div>
         <div class="row">
             <div class="col">
-                <button (click)="nextQuestion()" type="button" class="btn btn-outline-primary">{{questionItem.answers[2].answer}}</button>
+                <app-quiz-button (answerClicked)="nextQuestion(questionItem.answers[2])" [label]="questionItem.answers[2].answer"></app-quiz-button>
             </div>
 
             <div class="col">
-                <button (click)="nextQuestion()" type="button" class="btn btn-outline-primary">{{questionItem.answers[3].answer}}</button>
+                <app-quiz-button (answerClicked)="nextQuestion(questionItem.answers[3])" [label]="questionItem.answers[3].answer"></app-quiz-button>
             </div>
 
         </div>
@@ -33,4 +35,11 @@
     </div>
 
 
+</div>
+
+
+<div class="quizz-result" *ngIf="quizzEnded">
+    <h2 class="title">Félicitations !!</h2>
+    <img src="assets/img/clapping.png">
+    <p>Vous avez eu {{totalPoints}} points ! </p>
 </div>
