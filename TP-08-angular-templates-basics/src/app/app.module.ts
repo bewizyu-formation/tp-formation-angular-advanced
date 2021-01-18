@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,6 +12,7 @@ import { QuizzModule } from './quizz/quizz.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     QuizzModule
   ],

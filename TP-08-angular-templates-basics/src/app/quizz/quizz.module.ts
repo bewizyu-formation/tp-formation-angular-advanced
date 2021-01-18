@@ -1,3 +1,4 @@
+import { QuizzService } from './core/quizz.service';
 import { QuizzQuestionComponent } from './widgets/quizz-question/quizz-question.component';
 import { SharedModule } from './../shared/shared.module';
 import { CommonModule } from "@angular/common";
@@ -15,6 +16,6 @@ import { QuizzComponent } from "./components/quizz.component";
   ],
   exports :[
     QuizzComponent
-  ]
+  ],
 })
 export class QuizzModule{}
