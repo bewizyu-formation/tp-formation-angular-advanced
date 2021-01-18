@@ -11,25 +11,14 @@
         <h2>{{questionItem.question}} </h2>
 
         <div class="row">
-            <div class="col">
-                <app-quiz-button (answerClicked)="nextQuestion(questionItem.answers[0])" [label]="questionItem.answers[0].answer"></app-quiz-button>
-            </div>
-
-            <div class="col">
-                <app-quiz-button (answerClicked)="nextQuestion(questionItem.answers[1])" [label]="questionItem.answers[1].answer"></app-quiz-button>
-            </div>
-
+            <ng-container *ngFor="let answerItem of questionItem.answers; index as answerIndex;">
+                <div class="col">
+                    <app-quiz-button (answerClicked)="nextQuestion(answerItem)" [label]="answerItem.answer"></app-quiz-button>
+                </div>
+                <div class="w-100" *ngIf="answerIndex % 2 != 0"></div>
+            </ng-container>
         </div>
-        <div class="row">
-            <div class="col">
-                <app-quiz-button (answerClicked)="nextQuestion(questionItem.answers[2])" [label]="questionItem.answers[2].answer"></app-quiz-button>
-            </div>
 
-            <div class="col">
-                <app-quiz-button (answerClicked)="nextQuestion(questionItem.answers[3])" [label]="questionItem.answers[3].answer"></app-quiz-button>
-            </div>
-
-        </div>
 
 
     </div>
