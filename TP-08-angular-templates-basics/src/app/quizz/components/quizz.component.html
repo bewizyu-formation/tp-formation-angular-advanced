@@ -18,11 +18,14 @@
                 <div class="w-100" *ngIf="answerIndex % 2 != 0"></div>
             </ng-container>
         </div>
-
-
-
     </div>
 
+    <ng-container *ngFor="let questionItem of quizzQuestions; index as i;">
+        <!--
+       <app-quizz-question [questionItem]="questionItem" (onAnswer)="nextQuestion($event)"></app-quizz-question>
+
+     -->
+    </ng-container>
 
 </div>
 

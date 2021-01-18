@@ -1,20 +1,18 @@
-import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QuizzComponent } from './quizz/components/quizz.component';
+import { QuizzModule } from './quizz/quizz.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    QuizzComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    QuizzModule
   ],
   providers: [],
   bootstrap: [AppComponent]
