@@ -7,25 +7,7 @@
 
     <div class="counter">{{currentQuestionIndex + 1 }} / {{quizzQuestions.length}}</div>
 
-    <div class="question-container" *ngFor="let questionItem of quizzQuestions; index as i;" [hidden]="i != currentQuestionIndex">
-        <h2>{{questionItem.question}} </h2>
-
-        <div class="row">
-            <ng-container *ngFor="let answerItem of questionItem.answers; index as answerIndex;">
-                <div class="col">
-                    <app-quiz-button (answerClicked)="nextQuestion(answerItem)" [label]="answerItem.answer"></app-quiz-button>
-                </div>
-                <div class="w-100" *ngIf="answerIndex % 2 != 0"></div>
-            </ng-container>
-        </div>
-    </div>
-
-    <ng-container *ngFor="let questionItem of quizzQuestions; index as i;">
-        <!--
-       <app-quizz-question [questionItem]="questionItem" (onAnswer)="nextQuestion($event)"></app-quizz-question>
-
-     -->
-    </ng-container>
+    <app-quizz-question *ngFor="let questionItem of quizzQuestions; index as i;" [questionItem]="questionItem" (onAnswer)="nextQuestion($event)" [hidden]="i != currentQuestionIndex"></app-quizz-question>
 
 </div>
 
