@@ -1,6 +1,8 @@
+import { LoginService } from './../core/login.service';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private router: Router) {
 
 
   }
@@ -37,7 +41,14 @@ export class LoginComponent implements OnInit {
 
       // POST api/v1/login
       // TODO-2 : faire appel au service loginService.login()
-      console.log(email, password)
+      console.log(email, password);
+      this.loginService.login(email, password)
+        .subscribe(result => {
+          console.log(result);
+          this.router.navigate(['quizz']);
+         }, err => {
+          console.log(err);
+         })
     }
 
   }
