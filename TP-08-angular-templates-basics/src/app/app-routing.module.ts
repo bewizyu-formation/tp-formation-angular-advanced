@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationGuardService } from './authentication-guard.service';
 
 const routes: Routes = [
-  // TODO-4 : charger le module d'une facon dynamique au lieu d'utiliser QuizzComponent (Ref. AboutModule)
+  // TODO-4 : utiliser AuthenticationGuardService pour la page about egalement
   {
     path: 'quizz',
     loadChildren: () => {

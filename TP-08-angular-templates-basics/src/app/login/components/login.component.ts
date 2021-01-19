@@ -19,18 +19,25 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      login : [ '', Validators.compose([Validators.required, Validators.pattern(LoginComponent.EMAIL_REGX)]) ],
-      password : [ '', Validators.required ]
+      login: ['',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(LoginComponent.EMAIL_REGX)
+        ])
+      ],
+      password: ['', Validators.required]
     })
   }
 
-  submitLogin(){
+  submitLogin() {
 
-    if(this.loginForm.valid){
+    if (this.loginForm.valid) {
       const email = this.loginForm.get('login').value;
       const password = this.loginForm.get('password').value;
 
-      console.log(email , password )
+      // POST api/v1/login
+      // TODO-2 : faire appel au service loginService.login()
+      console.log(email, password)
     }
 
   }
