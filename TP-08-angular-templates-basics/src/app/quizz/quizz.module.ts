@@ -1,4 +1,3 @@
-import { QuizzService } from './core/quizz.service';
 import { QuizzQuestionComponent } from './widgets/quizz-question/quizz-question.component';
 import { SharedModule } from './../shared/shared.module';
 import { CommonModule } from "@angular/common";

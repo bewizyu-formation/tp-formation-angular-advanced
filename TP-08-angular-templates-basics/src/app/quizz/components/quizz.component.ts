@@ -16,6 +16,7 @@ export class QuizzComponent implements OnInit, OnDestroy {
   quizzEnded = false;
   quizzQuestions: Quizz[] = [];
 
+  contentLoading : boolean = true;
   intervalInstance;
 
   constructor(private quizzService: QuizzService) {
@@ -29,16 +30,36 @@ export class QuizzComponent implements OnInit, OnDestroy {
         result => {
           this.userName = `${result.firstname} ${result.lastname}`
         }, err => {
-          console.log('ERROR', err)
+          alert('Une erreur est survenue !')
         }
       );
 
     //init question data;
-    this.quizzQuestions = this.quizzService.retrieve();
+    this.quizzService.retrieve().subscribe(
+      result => {
+        this.quizzQuestions = result;
+        this.contentLoading = false;
+        this.startTimer();
+        //TODO To refactore !!
+        this.quizzService.persisteData(result);
+      },
+      err => {
+        alert('Une erreur est survenue !');
+        this.contentLoading = false;
+      }
+    );
+  }
 
+  private startTimer(){
     this.intervalInstance = setInterval(() => {
       this.quizTime++;
     }, 1000);
+  }
+
+  private stopTimer(){
+    if(!!this.intervalInstance){
+      clearInterval(this.intervalInstance);
+    }
   }
 
 
@@ -57,7 +78,7 @@ export class QuizzComponent implements OnInit, OnDestroy {
     if (this.currentQuestionIndex < this.quizzQuestions.length - 1) {
       this.currentQuestionIndex++;
     } else {
-      clearInterval(this.intervalInstance);
+      this.stopTimer();
       // afficher le resultat
       this.quizzEnded = true;
     }
