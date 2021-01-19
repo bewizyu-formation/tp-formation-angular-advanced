@@ -16,6 +16,10 @@ export class AppComponent {
     {
       titre : 'A propos',
       link : 'about'
+    },
+    {
+      titre : 'Login',
+      link : 'login'
     }
   ]
 }

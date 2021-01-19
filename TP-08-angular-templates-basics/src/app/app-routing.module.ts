@@ -1,17 +1,27 @@
 import { QuizzComponent } from './quizz/components/quizz.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthenticationGuardService } from './authentication-guard.service';
 
 const routes: Routes = [
   // TODO-4 : charger le module d'une facon dynamique au lieu d'utiliser QuizzComponent (Ref. AboutModule)
   {
     path: 'quizz',
-    component: QuizzComponent
+    loadChildren: () => {
+      return import('./quizz/quizz.module').then(res => res.QuizzModule)
+    },
+    canActivate: [AuthenticationGuardService]
   },
   {
     path: 'about',
     loadChildren: () => {
       return import('./about/about.module').then(res => res.AboutModule)
+    }
+  },
+  {
+    path: 'login',
+    loadChildren: () => {
+      return import('./login/login.module').then(res => res.LoginModule)
     }
   },
   {

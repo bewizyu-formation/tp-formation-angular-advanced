@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QuizzModule } from './quizz/quizz.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +13,7 @@ import { QuizzModule } from './quizz/quizz.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
-    QuizzModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

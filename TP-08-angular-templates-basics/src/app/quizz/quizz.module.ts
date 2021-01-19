@@ -1,3 +1,4 @@
+import { QuizzRoutingModule } from './quizz-routing.module';
 import { QuizzQuestionComponent } from './widgets/quizz-question/quizz-question.component';
 import { SharedModule } from './../shared/shared.module';
 import { CommonModule } from "@angular/common";
@@ -14,9 +15,10 @@ import { QuizzComponent } from "./components/quizz.component";
     SharedModule,
 
     // TODO-2 : Ajouter le module de routage
+    QuizzRoutingModule
   ],
   exports :[
-    QuizzComponent
+
     // TODO-3 : Supprimer l'export du component
 
   ],
