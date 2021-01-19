@@ -15,8 +15,7 @@ import { QuizzModule } from './quizz/quizz.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    QuizzModule,
-    AboutModule
+    QuizzModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,10 +11,14 @@ import { QuizzComponent } from "./components/quizz.component";
   ],
   imports : [
     CommonModule,
-    SharedModule
+    SharedModule,
+
+    // TODO-2 : Ajouter le module de routage
   ],
   exports :[
     QuizzComponent
+    // TODO-3 : Supprimer l'export du component
+
   ],
 })
 export class QuizzModule{}
