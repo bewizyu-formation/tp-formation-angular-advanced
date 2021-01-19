@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'auth-app';
+  titre = 'MY SMART APP';
+
+  navigations = [
+    {
+      titre : 'My Quizz',
+      link : 'quizz'
+    },
+    {
+      titre : 'A propos',
+      link : 'about'
+    }
+  ]
 }

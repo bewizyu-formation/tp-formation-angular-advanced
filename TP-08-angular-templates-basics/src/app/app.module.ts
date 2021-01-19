@@ -1,3 +1,4 @@
+import { AboutModule } from './about/about.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,8 @@ import { QuizzModule } from './quizz/quizz.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    QuizzModule
+    QuizzModule,
+    AboutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
