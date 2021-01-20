@@ -1,5 +1,5 @@
 import { fromEvent, interval, Observable, of, Subject } from 'rxjs';
-import { distinctUntilChanged, distinctUntilKeyChanged, filter, map, mapTo, pluck, reduce, scan, take, takeUntil, takeWhile, tap } from 'rxjs/operators';
+import { debounce, debounceTime, distinctUntilChanged, distinctUntilKeyChanged, filter, map, mapTo, pluck, reduce, scan, take, takeUntil, takeWhile, tap } from 'rxjs/operators';
 
 /*
  * Any code samples you want to play with can go in this file.
@@ -133,6 +133,8 @@ of({
 fromEvent(document.getElementById('search-input'), 'keyup')
     .pipe(
         pluck('target', 'value'),
+        distinctUntilChanged(),
+        debounceTime(500),
         tap(ev => {
             console.log(ev);
         })
