@@ -1,4 +1,4 @@
-import { Observable, of } from 'rxjs';
+import { fromEvent, Observable, of } from 'rxjs';
 
 /*
  * Any code samples you want to play with can go in this file.
@@ -6,5 +6,10 @@ import { Observable, of } from 'rxjs';
  * after running npm start.
  */
 
+fromEvent(document, 'mousemove').subscribe(ev => {
+    // console.log(ev.clientX)
+    // console.log(ev.clientY)
+    document.getElementById('id1').style.top = ev.clientY;
+    document.getElementById('id1').style.left = ev.clientX;
 
-of('Hello', 'RxJS').subscribe(console.log);
+})
