@@ -1,3 +1,4 @@
+import { LoginService } from './login/core/login.service';
 import { QuizzService } from './quizz/core/quizz.service';
 import { Injectable } from '@angular/core';
 import {CanActivate } from '@angular/router';
@@ -8,12 +9,11 @@ import {CanActivate } from '@angular/router';
 export class AuthenticationGuardService implements CanActivate {
 
   // TODO-3 : remplacer cette logique par l'utilisation de loginService.isUserConneted()
-  isAuthenticated = true;
-  constructor(){
+  constructor(private loginService: LoginService){
   }
 
   canActivate(){
-    return this.isAuthenticated;
+    return this.loginService.isUserConnected();
   }
 
 }

@@ -1,4 +1,6 @@
+import { LoginService } from './login/core/login.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +18,19 @@ export class AppComponent {
     {
       titre : 'A propos',
       link : 'about'
-    },
-    {
-      titre : 'Login',
-      link : 'login'
     }
   ]
+
+  constructor(private loginService: LoginService, private router: Router){
+
+  }
+
+  logoutUser(){
+    this.loginService.logout();
+    this.router.navigate(['login']);
+  }
+
+  isConnected(){
+    return this.loginService.isUserConnected();
+  }
 }

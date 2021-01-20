@@ -16,7 +16,8 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => {
       return import('./about/about.module').then(res => res.AboutModule)
-    }
+    },
+    canActivate: [AuthenticationGuardService]
   },
   {
     path: 'login',

@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['quizz']);
          }, err => {
           console.log(err);
+          alert('Login et/ou mot de passe incorrect')
          })
     }
 
