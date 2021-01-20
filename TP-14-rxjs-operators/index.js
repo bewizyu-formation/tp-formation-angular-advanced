@@ -56,8 +56,15 @@ fromEvent(document, 'click')
 // Modifier la taille du progress bar selon l'etat du scroll de l'utilisation, 
 // 0% : l'utilisateur n'a pas scroll 100% : l'utilisateur arrive a la fin de la page 
 fromEvent(document, 'scroll')
-    .subscribe(ev => {
+    .pipe(
+        pluck('target', 'scrollingElement'),
+        map(ev => {
+            const percent = ev.scrollTop / (ev.scrollHeight - ev.clientHeight) * 100;
+            return Math.round(percent)
+        })
+    )
+    .subscribe(poucentage => {
         // scrollTop / (scrollHeight - clientHeight)
         // document.getElementById('')
-        console.log(ev)
+        document.getElementById('progress-bar').style.width = `${poucentage}%`
     })

@@ -65,7 +65,7 @@ body {
 #progress-bar {
     position: fixed;
     height: 12px;
-    width: 40%;
+    width: 0%;
     background-color: aquamarine;
     top: 0;
     left: 0;
