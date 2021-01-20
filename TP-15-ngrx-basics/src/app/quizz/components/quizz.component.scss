@@ -1,0 +1,35 @@
+.title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.quizz-container {
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 10px;
+    .quizz-progress-bar {
+        width: 100%;
+        height: 15px;
+        background: #fafafa;
+        border-radius: 5px;
+        .quizz-progress {
+            border-radius: 5px;
+            height: 15px;
+            width: 50%;
+            background-color: #4c84f0;
+            transition: width 1s;
+        }
+    }
+    .counter {
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+.quizz-result {
+    text-align: center;
+    img {
+        width: 100px;
+    }
+}
