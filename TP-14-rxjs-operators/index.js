@@ -53,6 +53,8 @@ fromEvent(document, 'click')
         pluck('x')
     )
 
+// Modifier la taille du progress bar selon l'etat du scroll de l'utilisation, 
+// 0% : l'utilisateur n'a pas scroll 100% : l'utilisateur arrive a la fin de la page 
 fromEvent(document, 'scroll')
     .subscribe(ev => {
         // scrollTop / (scrollHeight - clientHeight)
