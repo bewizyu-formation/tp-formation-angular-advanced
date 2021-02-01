@@ -7,7 +7,6 @@ import {CanActivate } from '@angular/router';
 })
 export class AuthenticationGuardService implements CanActivate {
 
-  // TODO-3 : remplacer cette logique par l'utilisation de loginService.isUserConneted()
   isAuthenticated = true;
   constructor(){
   }

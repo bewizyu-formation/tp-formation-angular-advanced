@@ -1,10 +1,8 @@
-import { QuizzComponent } from './quizz/components/quizz.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationGuardService } from './authentication-guard.service';
 
 const routes: Routes = [
-  // TODO-4 : utiliser AuthenticationGuardService pour la page about egalement
   {
     path: 'quizz',
     loadChildren: () => {
@@ -28,6 +26,12 @@ const routes: Routes = [
     path: 'chat',
     loadChildren: () => {
       return import('./chat/chat.module').then(res => res.ChatModule)
+    }
+  },
+  {
+    path: 'counter',
+    loadChildren: () => {
+      return import('./counter/counter.module').then(res => res.CounterModule)
     }
   },
   {

@@ -5,9 +5,5 @@ export interface ChatMessage{
 }
 
 
-export interface ChatState{
-  loading : boolean;
-  messages : ChatMessage[];
-}
 
-
+// TODO

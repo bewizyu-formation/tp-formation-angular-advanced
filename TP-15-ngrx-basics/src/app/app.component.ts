@@ -18,6 +18,10 @@ export class AppComponent {
       link : 'chat'
     },
     {
+      titre : 'Timer',
+      link : 'counter'
+    },
+    {
       titre : 'A propos',
       link : 'about'
     },

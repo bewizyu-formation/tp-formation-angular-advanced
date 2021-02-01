@@ -39,8 +39,6 @@ export class LoginComponent implements OnInit {
       const email = this.loginForm.get('login').value;
       const password = this.loginForm.get('password').value;
 
-      // POST api/v1/login
-      // TODO-2 : faire appel au service loginService.login()
       console.log(email, password);
       this.loginService.login(email, password)
         .subscribe(result => {

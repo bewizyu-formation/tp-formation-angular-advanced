@@ -1,5 +1,4 @@
 import { environment } from './../../../environments/environment.prod';
-//TODO-1 :  Créer LoginService avec deux methodes : login(login,password) et isUserConnected(): boolean
 
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
