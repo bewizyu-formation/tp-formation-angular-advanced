@@ -1,5 +1,5 @@
-import { selectCounterValue } from './../core/counter.selector';
-import { incrementCounter } from './../core/counter.actions';
+import { selectCounterValue, selectCounterColor } from './../core/counter.selector';
+import { incrementCounter, decrementCounter } from './../core/counter.actions';
 import { Store } from '@ngrx/store';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -11,9 +11,11 @@ import { Subscription } from 'rxjs';
 })
 export class CounterComponent implements OnInit, OnDestroy {
 
+  static INCREMENT_BY = 10;
   subscriptions: Subscription[] = [];
 
   counter: number;
+  timerColor  = '';
 
   constructor(private store: Store) { }
 
@@ -24,10 +26,26 @@ export class CounterComponent implements OnInit, OnDestroy {
           this.counter = seconds;
         })
     )
+
+    this.subscriptions.push(
+      this.store.select(selectCounterColor)
+        .subscribe(color => {
+          this.timerColor = color;
+          console.log(color)
+        })
+    )
   }
 
   ngOnDestroy() {
     this.subscriptions.forEach(sub => sub.unsubscribe())
+  }
+
+  executerOperation(typeOperation : 'add' | 'sub'){
+    if(typeOperation === 'add'){
+      this.store.dispatch(incrementCounter({incrementBy : CounterComponent.INCREMENT_BY}))
+    } else {
+      this.store.dispatch(decrementCounter({decrementBy : CounterComponent.INCREMENT_BY}))
+    }
   }
 
 }

@@ -16,6 +16,11 @@ export class ChatComponent implements OnDestroy, OnInit {
   ngOnInit(){
     // TODO ...
 
+    setInterval(()=>{
+      console.log("FAKE USER ")
+      console.log(faker.name.firstName(), faker.name.lastName(), faker.lorem.words() )
+    }, 5000)
+
   }
 
   ngOnDestroy(): void {

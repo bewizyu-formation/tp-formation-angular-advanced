@@ -5,6 +5,9 @@
             <li class="nav-item" *ngFor="let nav of navigations">
                 <a class="nav-link" [routerLink]="nav.link">{{nav.titre}}</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"> {{timer}} </a>
+            </li>
         </ul>
     </div>
 </nav>

@@ -1,3 +1,4 @@
+import { selectCounterValue } from './counter/core/counter.selector';
 import { incrementCounter } from './counter/core/counter.actions';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
@@ -11,37 +12,39 @@ import { AppState } from './app.state';
 export class AppComponent implements OnInit {
   titre = 'MY SMART APP';
 
+  timer = 0;
+
   navigations = [
     {
-      titre : 'My Quizz',
-      link : 'quizz'
+      titre: 'My Quizz',
+      link: 'quizz'
     },
     {
-      titre : 'Messagerie',
-      link : 'chat'
+      titre: 'Messagerie',
+      link: 'chat'
     },
     {
-      titre : 'Timer',
-      link : 'counter'
+      titre: 'Timer',
+      link: 'counter'
     },
     {
-      titre : 'A propos',
-      link : 'about'
+      titre: 'A propos',
+      link: 'about'
     },
     {
-      titre : 'Login',
-      link : 'login'
+      titre: 'Login',
+      link: 'login'
     }
   ]
 
-  constructor(private store: Store<AppState>){
+  constructor(private store: Store<AppState>) {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     console.log('DEMARRAGE DE L\'APPLICATION')
-    setInterval(() => {
-      this.store.dispatch(incrementCounter({ incrementBy: 10 }))
-    }, 1000)
+    this.store.select(selectCounterValue).subscribe(seconds => {
+      this.timer = seconds;
+    })
   }
 }

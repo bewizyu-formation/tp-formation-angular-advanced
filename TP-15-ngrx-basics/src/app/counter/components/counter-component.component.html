@@ -1,11 +1,11 @@
 <div class="counter-page">
-    <h1>{{counter}}</h1>
+    <h1 [ngStyle]="{'color': timerColor}">{{counter}}</h1>
 
-    <button type="button" class="btn btn-outline-primary">
+    <button type="button" class="btn btn-outline-primary" (click)="executerOperation('add')">
       Incrementer
     </button>
 
-    <button type="button" class="btn btn-outline-primary">
+    <button type="button" class="btn btn-outline-primary" (click)="executerOperation('sub')">
       Decrementer
     </button>
 </div>

@@ -4,6 +4,7 @@ import { counterReducer } from './counter/core/counter.reducers';
 
 export interface AppState {
   counter : CounterState;
+
 }
 
 export const reducersMapping : ActionReducerMap<AppState> = {

@@ -12,3 +12,8 @@ export const selectCounterValue = createSelector(
   selectCounterState,
   (state : CounterState) => state.seconds
 )
+
+export const selectCounterColor = createSelector(
+  selectCounterState,
+  (state : CounterState) => state.color
+)
