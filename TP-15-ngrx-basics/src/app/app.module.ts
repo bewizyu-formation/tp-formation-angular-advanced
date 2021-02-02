@@ -1,3 +1,4 @@
+import { reducersMapping } from './app.state';
 import { environment } from './../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     //ngrx
     // TODO reducers
+    StoreModule.forRoot(reducersMapping),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
