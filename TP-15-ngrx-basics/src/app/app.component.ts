@@ -1,8 +1,10 @@
+import { sendMessage } from './chat/core/chat.actions';
 import { selectCounterValue } from './counter/core/counter.selector';
 import { incrementCounter } from './counter/core/counter.actions';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { AppState } from './app.state';
+import * as faker from 'faker'
 
 @Component({
   selector: 'app-root',
@@ -46,5 +48,15 @@ export class AppComponent implements OnInit {
     this.store.select(selectCounterValue).subscribe(seconds => {
       this.timer = seconds;
     })
+    setInterval(()=> {
+      this.store.dispatch(sendMessage({
+        messageToAdd: {
+          from: `${faker.name.firstName()} ${faker.name.lastName()}` ,
+          message: faker.lorem.words(),
+          type: 'received'
+        }
+      }))
+    }, 5000)
+
   }
 }

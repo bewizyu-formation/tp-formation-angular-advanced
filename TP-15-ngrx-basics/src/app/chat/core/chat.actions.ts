@@ -1,3 +1,4 @@
+import { ChatMessage } from './chat.models';
 import { createAction, props } from "@ngrx/store";
 
-// TODO
+export const sendMessage = createAction('[CHAT] envoyer message', props<{ messageToAdd: ChatMessage }>())

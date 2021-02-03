@@ -1,10 +1,13 @@
 export interface ChatMessage{
   message : string;
-  createdAt: Date;
+  createdAt?: Date;
   from : string;
   type: 'sent' | 'received';
 }
 
 
-
-// TODO
+export interface ChatState {
+  messages : ChatMessage[];
+  loading : boolean;
+  error : any;
+}

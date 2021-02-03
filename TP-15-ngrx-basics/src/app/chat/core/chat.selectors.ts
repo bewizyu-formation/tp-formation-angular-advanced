@@ -1,3 +1,10 @@
 import { createSelector } from "@ngrx/store";
+import { selectChatState } from "src/app/app.state";
 
-// TODO
+
+export const selectChatMessages = createSelector(
+  selectChatState,
+  (state) => {
+    return state.messages
+  }
+)

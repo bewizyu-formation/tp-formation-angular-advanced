@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './components/chat.component';
 import { SharedModule } from './../shared/shared.module';
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
     ChatComponent
   ],
   imports : [
+    FormsModule,
     CommonModule,
     SharedModule,
     ChatRoutingModule
