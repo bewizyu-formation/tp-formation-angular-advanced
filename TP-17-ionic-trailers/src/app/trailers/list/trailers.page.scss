@@ -1,0 +1,20 @@
+.trailers-page {
+    padding: 0 10px;
+    .featured-container {
+        width: 100%;
+        white-space: nowrap;
+         ::-webkit-scrollbar {
+            display: none;
+        }
+        .scroll {
+            overflow: auto;
+        }
+        .featured-card {
+            width: 150px;
+            display: inline-block;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
